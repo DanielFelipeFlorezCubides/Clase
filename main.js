@@ -12,8 +12,17 @@ function encenderVehiculo(marca, callback){
     }, 3000);
 }
 
+function encenderLuces(marca, callback){
+    setTimeout(function(){
+        console.log("Se encienden las luces del vehiculo marca "+marca);
+        callback();
+    }, 4000);
+};
+
 abrirVehiculo("Toyota", function(marca){
     encenderVehiculo(marca, function(){
-        console.log("El vehiculo esta encendido");
+        encenderLuces(marca, function(){
+            console.log("Listo para funcionar...");
+        });
     });
 });
